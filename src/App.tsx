@@ -70,14 +70,14 @@ export default function App() {
           <div className="flex items-center gap-2">
             <span className="text-2xl">📷</span>
             <div>
-              <h1 className="text-white font-extrabold text-lg leading-tight">Barkod POS</h1>
-              <p className="text-blue-200 text-xs">MSSQL Stok Yönetimi</p>
+              <h1 className="text-white font-extrabold text-lg leading-tight">Explore AVMBarkod POS</h1>
+              <p className="text-blue-200 text-xs">Stok Yönetimi</p>
             </div>
           </div>
           {/* DB bağlantı göstergesi */}
           <div className="flex items-center gap-1.5 bg-blue-800/50 px-3 py-1.5 rounded-full">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs text-blue-200 font-medium">MSSQL</span>
+            <span className="text-xs text-blue-200 font-medium">Çevrimiçi</span>
           </div>
         </div>
       </header>
