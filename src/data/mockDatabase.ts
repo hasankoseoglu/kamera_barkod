@@ -32,7 +32,7 @@ export interface Urun {
 let urunler: Urun[] = [
   {
     urunId: 1,
-    barkod: "8692341371103",
+    barkod: "8692341371400",
     urunAdi: "Arnica Tost Makinesi",
     fiyat: 2899.9,
     kartfiyat: 2799.9,
