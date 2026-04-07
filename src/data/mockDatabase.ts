@@ -21,6 +21,7 @@ export interface Urun {
   barkod: string;
   urunAdi: string;
   fiyat: number;
+  kartfiyat: number;
   paraBirimi: string;
   stok: number;
   kategori: string;
@@ -34,6 +35,7 @@ let urunler: Urun[] = [
     barkod: "8690526085811",
     urunAdi: "Ülker Çikolatalı Gofret",
     fiyat: 12.5,
+    kartfiyat: 22.5,
     paraBirimi: "₺",
     stok: 48,
     kategori: "Gıda",
@@ -44,6 +46,7 @@ let urunler: Urun[] = [
     barkod: "8690637094040",
     urunAdi: "Pınar Süt 1L",
     fiyat: 27.9,
+    kartfiyat: 22.5,
     paraBirimi: "₺",
     stok: 30,
     kategori: "Süt Ürünleri",
@@ -54,6 +57,7 @@ let urunler: Urun[] = [
     barkod: "8690804510017",
     urunAdi: "Coca-Cola 330ml Kutu",
     fiyat: 22.0,
+    kartfiyat: 22.5,
     paraBirimi: "₺",
     stok: 120,
     kategori: "İçecek",
@@ -64,6 +68,7 @@ let urunler: Urun[] = [
     barkod: "8691234567890",
     urunAdi: "Lay's Ketçap 107g",
     fiyat: 45.0,
+    kartfiyat: 22.5,
     paraBirimi: "₺",
     stok: 5,
     kategori: "Atıştırmalık",
@@ -71,11 +76,12 @@ let urunler: Urun[] = [
   },
   {
     urunId: 5,
-    barkod: "8699533370020",
-    urunAdi: "Nescafé Classic 100g",
+    barkod: "8692341371103",
+    urunAdi: "Arnica Katı Meyve Sıkacağı",
     fiyat: 89.9,
+    kartfiyat: 22.5,
     paraBirimi: "₺",
-    stok: 0,
+    stok: 20,
     kategori: "İçecek",
     resim: "☕",
   },
@@ -84,6 +90,7 @@ let urunler: Urun[] = [
     barkod: "TEST1234567890",
     urunAdi: "Test Ürünü - Demo",
     fiyat: 99.99,
+    kartfiyat: 22.5,
     paraBirimi: "₺",
     stok: 10,
     kategori: "Test",
@@ -97,7 +104,10 @@ let urunler: Urun[] = [
 export const barkodIleUrunBul = async (barkod: string): Promise<Urun | null> => {
   // API gecikmesini simüle et
   await new Promise((r) => setTimeout(r, 600));
-  const urun = urunler.find((u) => u.barkod === barkod);
+
+  const normalizeBarkod = (deger: string) => deger.trim().replace(/\s+/g, "").toUpperCase();
+  const arananBarkod = normalizeBarkod(barkod);
+  const urun = urunler.find((u) => normalizeBarkod(u.barkod) === arananBarkod);
   return urun ?? null;
 };
 

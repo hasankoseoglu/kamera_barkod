@@ -22,13 +22,14 @@ export default function App() {
   }, []);
 
   const barkodAra = useCallback(async (barkod: string) => {
-    if (!barkod.trim()) return;
-    setAranan(barkod);
+    const temizBarkod = barkod.trim().replace(/\s+/g, "");
+    if (!temizBarkod) return;
+    setAranan(temizBarkod);
     setYukleniyor(true);
     setBulunamadi(false);
     setBulunanUrun(null);
 
-    const urun = await barkodIleUrunBul(barkod);
+    const urun = await barkodIleUrunBul(temizBarkod);
     if (urun) {
       setBulunanUrun(urun);
       setBulunamadi(false);
