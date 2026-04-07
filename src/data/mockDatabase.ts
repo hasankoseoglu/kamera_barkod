@@ -96,18 +96,7 @@ let urunler: Urun[] = [
     kategori: "Mutfak Küçük Ev Aletleri",
     resim: "🫖",
   },
-  {
-    urunId: 7,
-    barkod: "8691000000007",
-    urunAdi: "Arnica Narenciye Sıkacağı",
-    fiyat: 1299.9,
-    kartfiyat: 1249.9,
-    paraBirimi: "₺",
-    stok: 14,
-    kategori: "Mutfak Küçük Ev Aletleri",
-    resim: "🍊",
-  },
-  {
+    {
     urunId: 8,
     barkod: "IH37110",
     urunAdi: "Arnica Katı Meyve Sıkacağı",
