@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-scan-line: scan-line 2s ease-in-out infinite;
+  --animate-slide-up: slide-up 0.3s ease-out;
+}
+
+@keyframes scan-line {
+  0% {
+    top: 10%;
+    opacity: 1;
+  }
+  50% {
+    top: 85%;
+    opacity: 0.8;
+  }
+  100% {
+    top: 10%;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
