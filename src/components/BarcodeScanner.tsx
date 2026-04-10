@@ -113,7 +113,7 @@ export default function BarcodeScanner({ onScan, aktif }: BarcodeScannerProps) {
               <span className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-green-400 rounded-bl-md" />
               <span className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-green-400 rounded-br-md" />
               {/* Tarama çizgisi animasyonu */}
-              <div className="absolute inset-x-2 h-0.5 bg-green-400/80 shadow-[0_0_8px_2px_rgba(74,222,128,0.6)] animate-scan-line" />
+              <div className="absolute inset-x-2 h-0.5 bg-green-400/80 shadow-[0_0_8px_2px_rgba(74,222,128,0.6)] animate-[scan-line_2s_ease-in-out_infinite]" />
             </div>
             <p className="absolute bottom-4 text-white/70 text-sm font-medium tracking-wide">
               Barkodu çerçeve içine getirin

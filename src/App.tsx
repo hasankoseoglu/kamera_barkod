@@ -40,14 +40,14 @@ export default function App() {
     setYukleniyor(false);
   }, []);
 
-  const stokGuncelle = (urunId: number, yeniStok: number) => {
+  const stokGuncelle = (barkod: string, yeniStok: number) => {
     // Bulunan ürün kartını güncelle
-    if (bulunanUrun?.urunId === urunId) {
+    if (bulunanUrun?.barkod === barkod) {
       setBulunanUrun((prev) => (prev ? { ...prev, stok: yeniStok } : null));
     }
     // Stok listesini güncelle
     setUrunler((prev) =>
-      prev.map((u) => (u.urunId === urunId ? { ...u, stok: yeniStok } : u))
+      prev.map((u) => (u.barkod === barkod ? { ...u, stok: yeniStok } : u))
     );
   };
 
@@ -63,9 +63,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-100">
+    <div className="min-h-screen bg-linear-to-br from-gray-50 via-blue-50/30 to-gray-100">
       {/* Header */}
-      <header className="bg-gradient-to-r from-blue-700 to-blue-600 shadow-lg">
+      <header className="bg-linear-to-r from-blue-700 to-blue-600 shadow-lg">
         <div className="max-w-md mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-2xl">📷</span>
@@ -161,7 +161,7 @@ export default function App() {
 
             {/* Ürün bulunamadı */}
             {bulunamadi && !yukleniyor && (
-              <div className="bg-white rounded-2xl shadow-lg border border-red-100 p-6 text-center animate-slide-up">
+              <div className="bg-white rounded-2xl shadow-lg border border-red-100 p-6 text-center animate-[slide-up_0.3s_ease-out]">
                 <span className="text-5xl block mb-3">🔍</span>
                 <h3 className="text-lg font-bold text-gray-800 mb-1">Ürün Bulunamadı</h3>
                 <p className="text-sm text-gray-500 mb-1">

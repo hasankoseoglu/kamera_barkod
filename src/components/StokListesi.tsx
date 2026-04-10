@@ -14,7 +14,7 @@ export default function StokListesi({ urunler }: StokListesiProps) {
       <div className="divide-y divide-gray-50">
         {urunler.map((u) => (
           <div
-            key={u.urunId}
+            key={u.barkod}
             className="flex items-center gap-3 px-5 py-3 hover:bg-gray-50 transition-colors"
           >
             <span className="text-2xl w-8 text-center flex-shrink-0">{u.resim ?? "📦"}</span>

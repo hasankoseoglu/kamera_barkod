@@ -3,7 +3,7 @@ import { Urun, stokDus } from "../data/mockDatabase";
 
 interface UrunKartiProps {
   urun: Urun;
-  onStokGuncelle: (urunId: number, yeniStok: number) => void;
+  onStokGuncelle: (barkod: string, yeniStok: number) => void;
 }
 
 export default function UrunKarti({ urun, onStokGuncelle }: UrunKartiProps) {
@@ -21,9 +21,9 @@ export default function UrunKarti({ urun, onStokGuncelle }: UrunKartiProps) {
     setMesaj(null);
 
     try {
-      const sonuc = await stokDus(urun.urunId);
+      const sonuc = await stokDus(urun.barkod);
       if (sonuc.basarili) {
-        onStokGuncelle(urun.urunId, sonuc.yeniStok);
+        onStokGuncelle(urun.barkod, sonuc.yeniStok);
         setMesaj({ tip: "basarili", metin: `✓ ${sonuc.mesaj} Kalan stok: ${sonuc.yeniStok}` });
       } else {
         setMesaj({ tip: "hata", metin: sonuc.mesaj });
@@ -51,7 +51,7 @@ export default function UrunKarti({ urun, onStokGuncelle }: UrunKartiProps) {
       : "bg-green-100 text-green-700 border border-green-200";
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden animate-slide-up">
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden animate-[slide-up_0.3s_ease-out]">
       {/* Başlık şeridi */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-3 flex items-center justify-between">
         <span className="text-white/80 text-xs font-medium uppercase tracking-widest">Ürün Bilgisi</span>
