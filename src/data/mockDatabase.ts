@@ -3766,14 +3766,6 @@ const hamUrunler: HamUrun[] = [
     "Miktar": "6",
     " Toplam Tutar ": " 7,125.94 "
   },
-  {
-    "urunId": "",
-    "Stok Kodu": "",
-    "Barkod": "",
-    "Stok Cinsi": "",
-    "Miktar": "",
-    " Toplam Tutar ": ""
-  },
   
 ];
 
@@ -3784,7 +3776,17 @@ const fiyatParseEt = (deger?: string): number => {
 };
 
 let urunler: Urun[] = hamUrunler
-  .filter((u) => (u.Barkod ?? "").trim().length > 0)
+  .filter((u) => {
+    const barkod = (u.Barkod ?? "").trim();
+    const stokCinsi = (u["Stok Cinsi"] ?? "").trim();
+    const toplamTutar = (u[" Toplam Tutar "] ?? "").trim();
+
+    return barkod.length > 0 && stokCinsi.length > 0 && toplamTutar !== "-" && fiyatParseEt(toplamTutar) > 0;
+  })
+  .filter((u, index, arr) => {
+    const barkod = (u.Barkod ?? "").trim();
+    return arr.findIndex((x) => (x.Barkod ?? "").trim() === barkod) === index;
+  })
   .map((u) => ({
     stokId: (u["Stok Kodu"] ?? "").trim(),
     barkod: (u.Barkod ?? "").trim(),
